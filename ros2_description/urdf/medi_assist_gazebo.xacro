@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Model">
+
+    <!-- Gazebo ros2_control plugin -->
+    <gazebo>
+      <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <robot_param>robot_description</robot_param>
+        <robot_param_node>robot_state_publisher</robot_param_node>
+        <parameters>$(find ros2_description)/config/medi_assist_config.yaml</parameters>
+        <ros>
+            <parameter name="use_sim_time" value="true"/>
+        </ros>
+      </plugin>
+    </gazebo>
+
+</robot>

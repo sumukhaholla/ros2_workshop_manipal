@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<robot  xmlns:xacro="http://wiki.ros.org/xacro">
+
+    <!-- THIS SCRIPT IS FOR ORBBEC FEMTO BOLT SERIES-->
+    <!-- Properties -->
+    <xacro:property name="M_PI" value="3.1415926535897931" />
+    <xacro:property name="mesh_path" value="package://ros2_description/meshes/" />
+
+    <xacro:macro name="femto_bolt" params="prefix parent *origin use_nominal_extrinsics:=true">
+        <!-- camera with origin at bottom screw mount -->
+        <joint name="${prefix}_joint" type="fixed">
+            <xacro:insert_block name="origin" />
+            <parent link="${parent}"/>
+            <child link="${prefix}_base_link" />
+        </joint>
+
+        <link name="${prefix}_base_link" >
+            <inertial>
+                <origin xyz="0.04601629355688741 -0.014344652062882102 -0.031542332436236165" rpy="0 0 0"/>
+                <mass value="1.843152955030244"/>
+                <inertia ixx="0.00078" iyy="0.00233" izz="0.002059" ixy="0.0" iyz="-7.6e-05" ixz="-0.0"/>
+            </inertial>
+            <visual>
+                <origin xyz="-0.082587 0.094326 -0.896631" rpy="0 0 0"/>
+                <geometry>
+                <mesh filename="${mesh_path}Femto_bolt_v1_1.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="-0.082587 0.094326 -0.896631" rpy="0 0 0"/>
+                <geometry>
+                <mesh filename="${mesh_path}Femto_bolt_v1_1.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <link name="${prefix}_link"/>
+
+        <joint name="${prefix}_depth_joint" type="fixed">
+            <origin xyz="0.044 -0.022802 -0.061338" rpy="0.0 1.83259571 1.57079633" />
+            <parent link="${prefix}_base_link" />
+            <child link="${prefix}_link" />
+        </joint>    
+
+        <joint name="${prefix}_optical_joint" type="fixed">
+            <origin xyz="0.0 0.0 0.0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
+            <parent link="${prefix}_link" />
+            <child link="${prefix}_link_optical" />
+        </joint>
+
+        <link name="${prefix}_link_optical"/>
+
+        <!-- <joint name="${prefix}_color_optical_joint" type="fixed">
+            <origin xyz="-0.03 0.0 -0.06515" rpy="0.0 ${M_PI/2} 0.0" />
+            <parent link="${prefix}_link"/>
+            <child link="${prefix}_color_optical_frame"/>
+        </joint>
+
+        <link name="${prefix}_color_optical_frame"></link> -->
+
+        <!-- GAZEBO REFERENCE TAG -->
+        <gazebo reference="${prefix}_link">
+            <material>Gazebo/Red</material>
+            <sensor name="${prefix}" type="depth">
+                <pose> 0 0 0 0 0 0 </pose>
+                <visualize>true</visualize>
+                <update_rate>30</update_rate>
+                <camera>
+                    <horizontal_fov>2.0943951</horizontal_fov>
+                    <image>
+                        <format>B8G8R8</format>
+                        <width>512</width>
+                        <height>512</height>
+                    </image>
+                    <clip>
+                        <near>0.25</near>
+                        <far>2.21</far>
+                    </clip>
+                </camera>
+                <plugin name="${prefix}_link_controller" filename="libgazebo_ros_camera.so">
+                    <frame_name>${prefix}_link_optical</frame_name>
+                    <min_depth>0.25</min_depth>
+                    <max_depth>2.21</max_depth>
+                </plugin>
+            </sensor>
+        </gazebo>
+    </xacro:macro>
+</robot>

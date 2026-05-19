@@ -1,0 +1,9 @@
+# Default initial positions for Model's ros2_control fake system
+
+initial_positions:
+  Revolute_1: 0.0
+  Revolute_2: 0.0
+  Revolute_3: -1.0995
+  Revolute_4: -0.8168
+  Revolute_5: 0.0
+  Revolute_6: 0.0

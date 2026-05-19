@@ -1,0 +1,353 @@
+<?xml version="1.0" ?>
+<robot name="Model" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- ROS2_CONTROL PLUGINS -->
+    <xacro:include filename="$(find ros2_description)/urdf/medi_assist_ros2_control.xacro"/>
+
+    <!-- GAZEBO PARAMETERS -->
+    <xacro:include filename="$(find ros2_description)/urdf/medi_assist_gazebo.xacro"/>
+
+    <!-- ORBBEC CAMERA -->
+    <xacro:include filename="$(find ros2_description)/urdf/orbec_camera.xacro"/>
+
+    <link name="world"/>
+
+    <link name="base_link">
+        <inertial>
+            <origin xyz="0.000916956687752491 -0.050561592021439956 0.5087695926933472" rpy="0 0 0"/>
+            <mass value="215.72763086032728"/>
+            <inertia ixx="34.178607" iyy="24.090705" izz="26.782131" ixy="-0.026992" iyz="-1.458572" ixz="0.035376"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/dae/base_linkV02.dae" scale="1.00 1.00 1.00"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/dae/base_linkV02.dae" scale="1.00 1.00 1.00"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="link_1__1__1">
+        <inertial>
+            <origin xyz="0.010910577324770928 4.0304361822451895e-06 0.06351961757404367" rpy="0 0 0"/>
+            <mass value="10.0"/>
+            <inertia ixx="0.027067" iyy="0.030809" izz="0.026243" ixy="-1e-06" iyz="-1e-06" ixz="-0.000743"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.003488 0.397366 -0.899482" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/dae/link_1.dae" scale="1.00 1.00 1.00"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0.003488 0.397366 -0.899482" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/link_1__1__1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="link_2__1__1">
+        <inertial>
+            <origin xyz="0.06347845232751415 3.980476653286935e-07 0.21249987577443497" rpy="0 0 0"/>
+            <mass value="10.0"/>
+            <inertia ixx="1.176134" iyy="1.185267" izz="0.066964" ixy="-0.0" iyz="-1.7e-05" ixz="0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.070912 0.397366 -0.962882" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/dae/link_2.dae" scale="1.00 1.00 1.00"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.070912 0.397366 -0.962882" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/link_2__1__1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="link_3__1__1">
+        <inertial>
+            <origin xyz="-0.06111242517921518 0.07139429219659921 -0.1531003341406041" rpy="0 0 0"/>
+            <mass value="10.0"/>
+            <inertia ixx="0.480772" iyy="0.403523" izz="0.10852" ixy="0.013209" iyz="0.175801" ixz="-0.028324"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.070912 0.397366 -1.387882" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/dae/link_3.dae" scale="1.00 1.00 1.00"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.070912 0.397366 -1.387882" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/link_3__1__1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="link_4__1__1">
+        <inertial>
+            <origin xyz="0.062077435162268935 -0.0025017891570296436 0.000662022917369498" rpy="0 0 0"/>
+            <mass value="10.0"/>
+            <inertia ixx="0.005384" iyy="0.007049" izz="0.00846" ixy="0.000197" iyz="0.000406" ixz="-5.1e-05"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.049412 0.231615 -1.032428" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/link_4__1__1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.049412 0.231615 -1.032428" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/link_4__1__1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="link_5__1__1">
+        <inertial>
+            <origin xyz="9.046212579633117e-06 0.04535613389087162 -0.008065062395423928" rpy="0 0 0"/>
+            <mass value="10.0"/>
+            <inertia ixx="0.005555" iyy="0.004691" izz="0.00398" ixy="-2e-06" iyz="-0.000303" ixz="-0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.129812 0.186892 -1.020445" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/dae/link_5.dae" scale="1.00 1.00 1.00"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.129812 0.186892 -1.020445" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/link_5__1__1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="link_6__1__1">
+        <inertial>
+            <origin xyz="-5.041750731349381e-07 -0.00657419089439229 -0.02453303103322979" rpy="0 0 0"/>
+            <mass value="1.7476800981120002"/>
+            <inertia ixx="0.000987" iyy="0.001001" izz="0.001198" ixy="0.0" iyz="5.6e-05" ixz="-0.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.129812 0.14714 -0.962481" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/link_6__1__1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.129812 0.14714 -0.962481" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/link_6__1__1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    // Camera plugin
+    <!-- <link name="Femto_bolt_v1_1">
+    <inertial>
+        <origin xyz="0.026754498086204892 -0.04601622658796614 -0.022020146909705662" rpy="0 0 0"/>
+        <mass value="1.843152955030244"/>
+        <inertia ixx="0.002115" iyy="0.00078" izz="0.002274" ixy="-0.0" iyz="-0.0" ixz="0.000134"/>
+    </inertial>
+    <visual>
+        <origin xyz="0.299916 -0.200276 -1.017476" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://ros2_description/meshes/Femto_bolt_v1_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        
+    </visual>
+    <collision>
+        <origin xyz="0.299916 -0.200276 -1.017476" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://ros2_description/meshes/Femto_bolt_v1_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+    </collision>
+    </link>
+
+    <link name="RGB_Camera_1">
+    <inertial>
+        <origin xyz="0.000865942689517285 -3.410696790551171e-07 -0.0005003714145385141" rpy="0 0 0"/>
+        <mass value="0.010941119791302297"/>
+        <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+    </inertial>
+    <visual>
+        <origin xyz="0.246233 -0.124276 -0.979958" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://ros2_description/meshes/RGB_Camera_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        
+    </visual>
+    <collision>
+        <origin xyz="0.246233 -0.124276 -0.979958" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://ros2_description/meshes/RGB_Camera_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+    </collision>
+    </link>
+
+    <link name="Depth_Camera_1">
+    <inertial>
+        <origin xyz="0.0008663401491341982 -3.410694202343745e-07 -0.0005003841164274991" rpy="0 0 0"/>
+        <mass value="0.0048770375884567355"/>
+        <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+    </inertial>
+    <visual>
+        <origin xyz="0.24657 -0.156276 -0.979575" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://ros2_description/meshes/Depth_Camera_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        
+    </visual>
+    <collision>
+        <origin xyz="0.24657 -0.156276 -0.979575" rpy="0 0 0"/>
+        <geometry>
+        <mesh filename="package://ros2_description/meshes/Depth_Camera_1.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+    </collision>
+    </link> -->
+
+    // Gripper
+    <link name="gripper_1">
+        <inertial>
+            <origin xyz="-0.00023594377458402427 0.003909500932557736 -0.03742895397017321" rpy="0 0 0"/>
+            <mass value="0.7631357559678082"/>
+            <inertia ixx="0.001396" iyy="0.000886" izz="0.001443" ixy="1e-05" iyz="-0.000226" ixz="3e-06"/>
+        </inertial>
+        <visual>
+            <origin xyz="-0.129812 0.158761 -0.919111" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/gripper_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="-0.129812 0.158761 -0.919111" rpy="0 0 0"/>
+            <geometry>
+            <mesh filename="package://ros2_description/meshes/gripper_1.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="virtual_joint" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+        <origin xyz="0.0000 0.0000 0.0000" rpy="0.0000 0.0000 0.0000"/>
+    </joint> 
+
+    <joint name="Revolute_1" type="revolute">
+    <origin xyz="-0.003488 -0.397366 0.899482" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="link_1__1__1"/>
+    <axis xyz="0.0 -0.0 1.0"/>
+    <limit upper="3.14159" lower="-3.14159" effort="100" velocity="100"/>
+    </joint>
+
+    <transmission name="transmission_Revolute_1">
+        <plugin>transmission_interface/SimpleTransmission</plugin>
+        <actuator name="motor_Revolute_1" role="actuator1"/>
+        <joint name="Revolute_1"    role="joint1">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <joint name="Revolute_2" type="revolute">
+        <origin xyz="0.0744 0.0 0.0634" rpy="0 0 0"/>
+        <parent link="link_1__1__1"/>
+        <child link="link_2__1__1"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+    </joint>
+
+    <transmission name="transmission_Revolute_2">
+        <plugin>transmission_interface/SimpleTransmission</plugin>
+        <actuator name="motor_Revolute_2" role="actuator1"/>
+        <joint name="Revolute_2"    role="joint1">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <joint name="Revolute_3" type="revolute">
+    <origin xyz="0.0 0.0 0.425" rpy="0 0 0"/>
+    <parent link="link_2__1__1"/>
+    <child link="link_3__1__1"/>
+    <axis xyz="-1.0 0.0 -0.0"/>
+    <limit upper="0.0" lower="-2.61799" effort="100" velocity="100"/>
+    </joint>
+
+    <transmission name="transmission_Revolute_3">
+        <plugin>transmission_interface/SimpleTransmission</plugin>
+        <actuator name="motor_Revolute_3" role="actuator1"/>
+        <joint name="Revolute_3"    role="joint1">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <joint name="Revolute_4" type="revolute">
+    <origin xyz="-0.0215 0.165751 -0.355454" rpy="0 0 0"/>
+    <parent link="link_3__1__1"/>
+    <child link="link_4__1__1"/>
+    <axis xyz="1.0 -0.0 0.0"/>
+    <limit upper="3.14159" lower="-3.14159" effort="100" velocity="100"/>
+    </joint>
+
+    <transmission name="transmission_Revolute_4">
+        <plugin>transmission_interface/SimpleTransmission</plugin>
+        <actuator name="motor_Revolute_4" role="actuator1"/>
+        <joint name="Revolute_4"    role="joint1">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <joint name="Revolute_5" type="revolute">
+    <origin xyz="0.0804 0.044723 -0.011983" rpy="0 0 0"/>
+    <parent link="link_4__1__1"/>
+    <child link="link_5__1__1"/>
+    <axis xyz="0.0 0.965926 -0.258819"/>
+    <limit upper="2.094" lower="-2.094" effort="100" velocity="100"/>
+    </joint>
+
+    <transmission name="transmission_Revolute_5">
+        <plugin>transmission_interface/SimpleTransmission</plugin>
+        <actuator name="motor_Revolute_5" role="actuator1"/>
+        <joint name="Revolute_5"    role="joint1">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <joint name="Revolute_6" type="revolute">
+    <origin xyz="0.0 0.039752 -0.057964" rpy="0 0 0"/>
+    <parent link="link_5__1__1"/>
+    <child link="link_6__1__1"/>
+    <axis xyz="0.0 -0.258819 -0.965926"/>
+    <limit upper="3.14159" lower="-3.14159" effort="100" velocity="100"/>
+    </joint>
+
+    <transmission name="transmission_Revolute_6">
+        <plugin>transmission_interface/SimpleTransmission</plugin>
+        <actuator name="motor_Revolute_6" role="actuator1"/>
+        <joint name="Revolute_6"    role="joint1">
+            <mechanical_reduction>1.0</mechanical_reduction>
+        </joint>
+    </transmission>
+
+    <xacro:femto_bolt prefix="femto"
+                      parent="gripper_1"
+                      use_nominal_extrinsics="true">
+        <origin xyz="-0.047225 0.064435 -0.02248" rpy="0 0 0"/>
+    </xacro:femto_bolt>
+
+    <joint name="Rigid_8" type="fixed">
+    <origin xyz="0.0 -0.011621 -0.04337" rpy="0 0 0"/>
+    <parent link="link_6__1__1"/>
+    <child link="gripper_1"/>
+    </joint>
+</robot>

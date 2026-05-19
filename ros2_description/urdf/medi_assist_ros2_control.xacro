@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Model">
+
+    <ros2_control name="RobotSystem" type="system">
+
+        <!-- Gazebo ros2_control plugin -->
+        <hardware>
+            <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+
+        <!-- Joint 1 -->
+        <joint name="Revolute_1">
+            <command_interface name="position">
+                <param name="min">-3.14159</param>
+                <param name="max">3.14159</param>
+            </command_interface>
+
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <!-- Joint 2 -->
+        <joint name="Revolute_2">
+            <command_interface name="position">
+                <param name="min">-1.570796</param>
+                <param name="max">1.570796</param>
+            </command_interface>
+            <state_interface name="position">
+                <param name="initial_value">0.0</param>  <!-- safely in the middle -->
+            </state_interface>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <!-- Joint 3 -->
+        <joint name="Revolute_3">
+            <command_interface name="position">
+                <param name="min">-2.61799</param>
+                <param name="max">0.0</param>
+            </command_interface>
+
+            <state_interface name="position">
+                <param name="initial_value">-1.099557</param>
+            </state_interface>
+
+            <state_interface name="velocity"/>
+        </joint>
+
+        <!-- Joint 4 -->
+        <joint name="Revolute_4">
+            <command_interface name="position">
+                <param name="min">-3.14159</param>
+                <param name="max">3.14159</param>
+            </command_interface>
+
+            <state_interface name="position">
+                <param name="initial_value">-0.816814</param>
+            </state_interface>
+
+            <state_interface name="velocity"/>
+        </joint>
+
+        <!-- Joint 5 -->
+        <joint name="Revolute_5">
+            <command_interface name="position">
+                <param name="min">-2.094</param>
+                <param name="max">2.094</param>
+            </command_interface>
+
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+        <!-- Joint 6 -->
+        <joint name="Revolute_6">
+            <command_interface name="position">
+                <param name="min">-3.14159</param>
+                <param name="max">3.14159</param>
+            </command_interface>
+
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+
+    </ros2_control>
+
+</robot>
