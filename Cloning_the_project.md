@@ -36,7 +36,16 @@ git clone https://github.com/sumukhaholla/ros2_workshop_manipal.git .
 
 ROS 2 uses **`rosdep`** to automatically read every `package.xml` in your workspace and install the required system and ROS dependencies in one command.
 
-First, initialise `rosdep` if you haven't already (only needed once per machine):
+First, install rosdep if not there:
+```bash
+sudo apt install python3-rosdep -y
+```
+Also, "colcon". If not installed:
+```bash
+sudo apt install python3-colcon-common-extensions -y
+```
+
+Then, initialise `rosdep` if you haven't already (only needed once per machine):
 
 ```bash
 sudo rosdep init
@@ -48,6 +57,10 @@ Then, from the **workspace root**, run:
 ```bash
 cd ~/ros2_ws
 rosdep install --from-paths src --ignore-src -r -y --skip-keys="linkattacher_msgs warehouse_ros_mongo"
+```
+Sometimes moveit-visuals-tools will not be installed, hence run following command:
+```bash
+sudo apt install ros-humble-moveit-visual-tools -y
 ```
 
 | Flag | Meaning |
