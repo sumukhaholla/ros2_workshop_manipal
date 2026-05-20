@@ -29,7 +29,7 @@ cd ~/ros2_ws/src
 ### Step 2 — Clone the Repository
 
 ```bash
-git clone https://github.com/sumukhaholla/ros2_workshop_manipal.git
+git clone https://github.com/sumukhaholla/ros2_workshop_manipal.git .
 ```
 
 ### Step 3 — Install All Package Dependencies (single command)
