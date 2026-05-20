@@ -47,7 +47,7 @@ Then, from the **workspace root**, run:
 
 ```bash
 cd ~/ros2_ws
-rosdep install --from-paths src --ignore-src -r -y
+rosdep install --from-paths src --ignore-src -r -y --skip-keys="linkattacher_msgs warehouse_ros_mongo"
 ```
 
 | Flag | Meaning |
