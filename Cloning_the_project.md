@@ -58,10 +58,6 @@ Then, from the **workspace root**, run:
 cd ~/ros2_ws
 rosdep install --from-paths src --ignore-src -r -y --skip-keys="linkattacher_msgs warehouse_ros_mongo"
 ```
-Sometimes moveit-visuals-tools will not be installed, hence run following command:
-```bash
-sudo apt install ros-humble-moveit-visual-tools -y
-```
 
 | Flag | Meaning |
 |---|---|
@@ -71,6 +67,20 @@ sudo apt install ros-humble-moveit-visual-tools -y
 | `-y` | Answer *yes* automatically to all install prompts |
 
 > ✅ This single command installs **all** ROS and system-level libraries your packages depend on, as declared in their `package.xml` files.
+
+Sometimes moveit-visuals-tools will not be installed, hence run following command:
+```bash
+sudo apt install ros-humble-moveit-visual-tools -y
+```
+Also change the path inside world files pointing from ros2_workshop_manipal to ros2_ws(or name of your workspace)
+By running this command:
+```bash
+sed -i 's|/home/administrator/ros2_workshop_manipal/install/ros2_description/share/ros2_description/config/medi_assist_config.yaml|/home/sumukha/ros2_ws/install/ros2_description/share/ros2_description/config/medi_assist_config.yaml|g' ~/ros2_ws/src/ros2_description/worlds/medi_assistV02.world
+```
+Verify if its already done
+```bash
+grep "parameters" ~/ros2_ws/src/ros2_description/worlds/medi_assistV02.world
+```
 
 ### Step 4 — Build the Workspace
 
@@ -99,28 +109,3 @@ To make this permanent:
 echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
-
----
-
-### 🚀 Full Setup — One After Another
-
-Here's the complete sequence from a fresh ROS 2 install to a ready workspace:
-
-```bash
-# 1. Create workspace and clone
-mkdir -p ~/ros2_ws/src
-cd ~/ros2_ws/src
-git clone https://github.com/your-username/your-repo.git
-
-# 2. Install all dependencies
-cd ~/ros2_ws
-rosdep install --from-paths src --ignore-src -r -y --skip-keys="linkattacher_msgs warehouse_ros_mongo"
-
-# 3. Build
-colcon build
-
-# 4. Source
-source ~/ros2_ws/install/setup.bash
-```
-
----
