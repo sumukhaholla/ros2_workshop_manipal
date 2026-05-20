@@ -172,6 +172,15 @@ source ~/.bashrc
 ## Verify Installation
 
 Run the classic talker-listener demo to confirm ROS 2 is working correctly.
+Please make sure that demo_nodes_cpp and demo_nodes_py is available. If not try running below installation
+
+```bash
+sudo apt install ros-humble-demo-nodes-cpp
+```
+
+```bash
+sudo apt install ros-humble-demo-nodes-py
+```
 
 **Terminal 1 — C++ Talker:**
 ```bash
@@ -194,6 +203,49 @@ You should see output similar to:
 
 This confirms both the **C++ and Python client libraries** are installed and communicating correctly. 🎉
 
+---
+## Also do some changes in the ~/.bashrc file, so that different systems doesn't collide when running ROS2 packages
+
+Openup bashrc file
+```bash
+gedit ~/.bashrc
+```
+At the end of file, paste this:
+```bash
+export ROS_DOMAIN_ID=0
+```
+Here ROS_DOMAIN_ID number can be anything, but keep it unique and random so that no other systems have same ID
+
+## Usually ROS2 uses default fastDDS, if nothing is selected. yet sometimes you might get error telling that there is RMW implemntation. If so, follow below steps
+
+In the terminal, run following command for installation:
+```bash
+sudo apt update
+sudo apt install ros-humble-rmw-cyclonedds-cpp
+```
+Then source your workspace
+```bash
+source /opt/ros/humble/setup.bash
+```
+Later run this command, to check what RMW implementation was selected:
+```bash
+echo $RMW_IMPLEMENTATION
+```
+If nothing prints, no need to panic that means, ROS2 uses fastDDS. Try to run example talker and listner packages (that is in verify installation)
+If still Talker and listner is not yet running then, please select any one of the RMW implementation, taht is:
+Option A: Using fastDDS
+```bash
+echo "export RMW_IMPLEMENTATION=rmw_fastrtps_cpp" >> ~/.bashrc
+```
+Option B: Using Cyclone DDS
+```bash
+echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> ~/.bashrc
+```
+Later source your environment:
+```bash
+source /opt/ros/humble/setup.bash
+```
+***If there are any more difficulties or problems, please use chatGPT or claude***
 ---
 
 ## 🔧 Post-Installation Tips
