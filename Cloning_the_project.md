@@ -101,7 +101,7 @@ git clone https://github.com/your-username/your-repo.git
 
 # 2. Install all dependencies
 cd ~/ros2_ws
-rosdep install --from-paths src --ignore-src -r -y
+rosdep install --from-paths src --ignore-src -r -y --skip-keys="linkattacher_msgs warehouse_ros_mongo"
 
 # 3. Build
 colcon build
